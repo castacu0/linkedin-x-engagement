@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Y Combinator Community",
+    "handle": "y-combinator-community",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/company/y-combinator-community/posts/",
+    "enabled": true,
+    "orgUrn": "",
+    "rssUrl": "",
+    "note": "Reading LinkedIn org posts requires the Community Management API + page admin, OR set rssUrl to an RSS-bridge feed of this page. See README → LinkedIn."
+  },
+  {
+    "name": "Y Combinator",
+    "handle": "y-combinator",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/school/y-combinator/posts/?feedView=all",
+    "enabled": true,
+    "orgUrn": "",
+    "rssUrl": "",
+    "note": "Same as above — set orgUrn (urn:li:organization:ID) with a Community Management token, or an rssUrl."
+  },
+  {
+    "name": "Garry Tan",
+    "handle": "@garrytan",
+    "platform": "x",
+    "url": "https://x.com/garrytan",
+    "enabled": true
+  },
+  {
+    "name": "Andrej Karpathy",
+    "handle": "@karpathy",
+    "platform": "x",
+    "url": "https://x.com/karpathy",
+    "enabled": true
+  },
+  {
+    "name": "Paul Graham",
+    "handle": "@paulg",
+    "platform": "x",
+    "url": "https://x.com/paulg",
+    "enabled": false,
+    "note": "Example 'other personality'. Flip enabled to true to include in the daily scan."
+  },
+  {
+    "name": "Sam Altman",
+    "handle": "@sama",
+    "platform": "x",
+    "url": "https://x.com/sama",
+    "enabled": false,
+    "note": "Example 'other personality'. Flip enabled to true to include in the daily scan."
+  }
+]

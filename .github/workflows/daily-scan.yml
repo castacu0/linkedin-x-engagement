@@ -1,0 +1,43 @@
+name: Daily engagement scan
+
+on:
+  schedule:
+    # 13:00 UTC daily. ADJUST to your timezone — e.g. for 08:00 America/New_York
+    # (UTC-4 in summer) use '0 12 * * *'. cron is always in UTC.
+    - cron: '0 13 * * *'
+  workflow_dispatch: # lets you run it on demand from the Actions tab
+
+permissions:
+  contents: write # to commit generated drafts back to the branch
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Run scan
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+        run: npm run scan
+
+      - name: Commit drafts
+        run: |
+          git config user.name "engagement-bot"
+          git config user.email "actions@github.com"
+          git add public/data drafts
+          if git diff --staged --quiet; then
+            echo "No new drafts to commit."
+          else
+            git commit -m "chore: daily engagement drafts $(date -u +%Y-%m-%d)"
+            git push
+          fi

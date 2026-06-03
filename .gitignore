@@ -1,18 +1,23 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Dependencies
+node_modules/
 
-# Other files and folders
-.settings/
+# Build output
+dist/
+.vite/
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Secrets / local env
+.env
+.env.local
+.env.*.local
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# NOTE: public/data/** and drafts/** are intentionally committed —
+# they are the generated drafts the daily scan produces for review.
