@@ -2,9 +2,9 @@ name: Daily engagement scan
 
 on:
   schedule:
-    # 13:00 UTC daily. ADJUST to your timezone — e.g. for 08:00 America/New_York
-    # (UTC-4 in summer) use '0 12 * * *'. cron is always in UTC.
-    - cron: '0 13 * * *'
+    # 14:00 UTC = 08:00 America/Mexico_City (UTC-6), matching the calendar
+    # reminder. cron is always in UTC — change this if your timezone changes.
+    - cron: '0 14 * * *'
   workflow_dispatch: # lets you run it on demand from the Actions tab
 
 permissions:
