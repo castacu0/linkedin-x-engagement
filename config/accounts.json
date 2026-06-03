@@ -5,9 +5,9 @@
     "platform": "linkedin",
     "url": "https://www.linkedin.com/company/y-combinator-community/posts/",
     "enabled": true,
-    "orgUrn": "",
     "rssUrl": "",
-    "note": "Reading LinkedIn org posts requires the Community Management API + page admin, OR set rssUrl to an RSS-bridge feed of this page. See README → LinkedIn."
+    "orgUrn": "",
+    "note": "Paste an RSS-bridge feed URL for this LinkedIn page into rssUrl. See SETUP_KEYS.md."
   },
   {
     "name": "Y Combinator",
@@ -15,23 +15,27 @@
     "platform": "linkedin",
     "url": "https://www.linkedin.com/school/y-combinator/posts/?feedView=all",
     "enabled": true,
-    "orgUrn": "",
     "rssUrl": "",
-    "note": "Same as above — set orgUrn (urn:li:organization:ID) with a Community Management token, or an rssUrl."
+    "orgUrn": "",
+    "note": "Paste an RSS-bridge feed URL for this LinkedIn page into rssUrl. See SETUP_KEYS.md."
   },
   {
     "name": "Garry Tan",
     "handle": "@garrytan",
     "platform": "x",
     "url": "https://x.com/garrytan",
-    "enabled": true
+    "enabled": true,
+    "rssUrl": "",
+    "note": "Paste an RSS-bridge feed URL for x.com/garrytan into rssUrl. See SETUP_KEYS.md."
   },
   {
     "name": "Andrej Karpathy",
     "handle": "@karpathy",
     "platform": "x",
     "url": "https://x.com/karpathy",
-    "enabled": true
+    "enabled": true,
+    "rssUrl": "",
+    "note": "Paste an RSS-bridge feed URL for x.com/karpathy into rssUrl. See SETUP_KEYS.md."
   },
   {
     "name": "Paul Graham",
@@ -39,7 +43,8 @@
     "platform": "x",
     "url": "https://x.com/paulg",
     "enabled": false,
-    "note": "Example 'other personality'. Flip enabled to true to include in the daily scan."
+    "rssUrl": "",
+    "note": "Example 'other personality'. Flip enabled to true and add an rssUrl to include."
   },
   {
     "name": "Sam Altman",
@@ -47,6 +52,7 @@
     "platform": "x",
     "url": "https://x.com/sama",
     "enabled": false,
-    "note": "Example 'other personality'. Flip enabled to true to include in the daily scan."
+    "rssUrl": "",
+    "note": "Example 'other personality'. Flip enabled to true and add an rssUrl to include."
   }
 ]

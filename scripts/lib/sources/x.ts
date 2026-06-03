@@ -1,17 +1,25 @@
 import type { AccountConfig, PostRef } from '../types'
+import { fetchRssPosts } from './rss'
 
 const API = 'https://api.x.com/2'
 
 /**
  * Fetch recent original posts (no retweets/replies) for one X account since
- * `sinceIso`, using the X API v2 app-only Bearer token.
+ * `sinceIso`.
  *
- * Requires X_BEARER_TOKEN. Without it the account is skipped (returns []).
+ * Resolution order:
+ *   1. `rssUrl` (recommended) — an RSS-bridge feed of the profile. No key, no
+ *      paid X tier.
+ *   2. X API v2 app-only Bearer token (`X_BEARER_TOKEN`) — needs the paid Basic
+ *      tier or higher to read other users' timelines.
+ * Without either, the account is skipped (returns []).
  */
 export async function fetchXPosts(account: AccountConfig, sinceIso: string): Promise<PostRef[]> {
+  if (account.rssUrl) return fetchRssPosts(account, sinceIso)
+
   const token = process.env.X_BEARER_TOKEN
   if (!token) {
-    console.warn(`[x] X_BEARER_TOKEN not set — skipping ${account.handle}. See README → X.`)
+    console.warn(`[x] ${account.handle}: no rssUrl and X_BEARER_TOKEN unset — skipping. See SETUP_KEYS.md.`)
     return []
   }
 

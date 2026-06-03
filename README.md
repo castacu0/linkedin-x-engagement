@@ -29,8 +29,12 @@ This tool can only read what you give it credentials for. As of setup:
   API**, an access token, and **admin rights on that page** (`orgUrn`). For
   everything else the practical path is an **RSS-bridge feed** (`rssUrl`).
 
-Until you wire up credentials, live scans return **0 posts** (by design — the
-tool will never invent posts). Use sample mode to see the app working:
+**Recommended setup uses RSS bridges for both X and LinkedIn** — no paid X tier,
+no LinkedIn key. Set a per-account `rssUrl` in `config/accounts.json`. Full
+walkthrough in **[SETUP_KEYS.md](./SETUP_KEYS.md)**.
+
+Until you wire up feeds/credentials, live scans return **0 posts** (by design —
+the tool will never invent posts). Use sample mode to see the app working:
 
 ```bash
 npm install
