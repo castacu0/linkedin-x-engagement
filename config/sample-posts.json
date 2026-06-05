@@ -1,0 +1,43 @@
+{
+  "_comment": "Illustrative posts used by `npm run scan:sample` so the dashboard renders end-to-end WITHOUT live API credentials. These are NOT real posts — every item carries isSample:true and links to the profile, not a specific status. The `comment` field is a curated learn-wise example; in live mode comments are written by Claude (ANTHROPIC_API_KEY) or the template fallback.",
+  "@karpathy": [
+    {
+      "id": "sample-karpathy-1",
+      "text": "The best way to understand something deeply is to build it from scratch once, even badly. Abstractions are great for shipping, terrible for learning.",
+      "publishedAt": "2026-06-03T05:30:00Z",
+      "url": "https://x.com/karpathy",
+      "isSample": true,
+      "comment": "The \"build it from scratch once, even badly\" rule keeps proving itself for me — I only really understood tokenization after writing a clumsy one by hand. Good reminder that abstractions ship code but rarely teach it. 🧠"
+    }
+  ],
+  "@garrytan": [
+    {
+      "id": "sample-garrytan-1",
+      "text": "Conviction is easy on a good week. The founders who make it are the ones whose belief survives contact with a bad one.",
+      "publishedAt": "2026-06-03T04:10:00Z",
+      "url": "https://x.com/garrytan",
+      "isSample": true,
+      "comment": "The split between conviction on a good week vs. a bad one is the part I'm keeping. It reframes resilience as something you pre-decide rather than something you have to summon in the moment."
+    }
+  ],
+  "y-combinator-community": [
+    {
+      "id": "sample-yccommunity-1",
+      "text": "Office hours reminder: talk to your users every week, not every quarter. Treat user research as a habit, not a milestone.",
+      "publishedAt": "2026-06-03T06:00:00Z",
+      "url": "https://www.linkedin.com/company/y-combinator-community/posts/",
+      "isSample": true,
+      "comment": "Treating user research as a weekly habit instead of a quarterly milestone is a small reframe that compounds — going to block a recurring slot for it this week. 🙏"
+    }
+  ],
+  "y-combinator": [
+    {
+      "id": "sample-yc-1",
+      "text": "Default alive or default dead? It's a question you answer with a spreadsheet and your real burn — not a vibe. Know your number.",
+      "publishedAt": "2026-06-03T06:30:00Z",
+      "url": "https://www.linkedin.com/school/y-combinator/posts/?feedView=all",
+      "isSample": true,
+      "comment": "The nudge to answer \"default alive or dead\" with the actual burn spreadsheet, not a gut feeling, landed for me. Turning a vague worry into a number you can act on is the useful move."
+    }
+  ]
+}

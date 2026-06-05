@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Y Combinator Community",
+    "handle": "y-combinator-community",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/company/y-combinator-community/posts/",
+    "enabled": true,
+    "rssUrl": "",
+    "orgUrn": "",
+    "note": "Paste an RSS-bridge feed URL for this LinkedIn page into rssUrl. See SETUP_KEYS.md."
+  },
+  {
+    "name": "Y Combinator",
+    "handle": "y-combinator",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/school/y-combinator/posts/?feedView=all",
+    "enabled": true,
+    "rssUrl": "https://rss.app/r/feed/WkYfoh5u2UAPNEAP",
+    "orgUrn": "",
+    "note": "Paste an RSS-bridge feed URL for this LinkedIn page into rssUrl. See SETUP_KEYS.md."
+  },
+  {
+    "name": "Garry Tan",
+    "handle": "@garrytan",
+    "platform": "x",
+    "url": "https://x.com/garrytan",
+    "enabled": true,
+    "rssUrl": "https://rss.app/r/feed/DeqE2eV53FJCLz6f",
+    "note": "Paste an RSS-bridge feed URL for x.com/garrytan into rssUrl. See SETUP_KEYS.md."
+  },
+  {
+    "name": "Andrej Karpathy",
+    "handle": "@karpathy",
+    "platform": "x",
+    "url": "https://x.com/karpathy",
+    "enabled": true,
+    "rssUrl": "https://rss.app/r/feed/okBRelUhhwz0tGan",
+    "note": "Paste an RSS-bridge feed URL for x.com/karpathy into rssUrl. See SETUP_KEYS.md."
+  },
+  {
+    "name": "Starcloud",
+    "handle": "@Starcloud_",
+    "platform": "x",
+    "url": "https://x.com/Starcloud_",
+    "enabled": true,
+    "rssUrl": "",
+    "note": "Paste an RSS-bridge feed URL for x.com/Starcloud_ into rssUrl. See SETUP_KEYS.md."
+  },
+  {
+    "name": "Paul Graham",
+    "handle": "@paulg",
+    "platform": "x",
+    "url": "https://x.com/paulg",
+    "enabled": false,
+    "rssUrl": "https://rss.app/r/feed/aqFVX4Byxq9hhfr6",
+    "note": "Example 'other personality'. Flip enabled to true and add an rssUrl to include."
+  },
+  {
+    "name": "Sam Altman",
+    "handle": "@sama",
+    "platform": "x",
+    "url": "https://x.com/sama",
+    "enabled": false,
+    "rssUrl": "https://rss.app/r/feed/Md6hkONMaEvHjb0r",
+    "note": "Example 'other personality'. Flip enabled to true and add an rssUrl to include."
+  }
+]
