@@ -38,6 +38,15 @@
     "note": "Paste an RSS-bridge feed URL for x.com/karpathy into rssUrl. See SETUP_KEYS.md."
   },
   {
+    "name": "Starcloud",
+    "handle": "@Starcloud_",
+    "platform": "x",
+    "url": "https://x.com/Starcloud_",
+    "enabled": true,
+    "rssUrl": "",
+    "note": "Paste an RSS-bridge feed URL for x.com/Starcloud_ into rssUrl. See SETUP_KEYS.md."
+  },
+  {
     "name": "Paul Graham",
     "handle": "@paulg",
     "platform": "x",
