@@ -25,8 +25,8 @@
     "platform": "x",
     "url": "https://x.com/garrytan",
     "enabled": true,
-    "rssUrl": "https://rss.app/r/feed/DeqE2eV53FJCLz6f",
-    "note": "Paste an RSS-bridge feed URL for x.com/garrytan into rssUrl. See SETUP_KEYS.md."
+    "rssUrl": "",
+    "note": "Read via the X API (X_BEARER_TOKEN, pay-per-use). Leave rssUrl empty to use the API."
   },
   {
     "name": "Andrej Karpathy",
@@ -34,8 +34,8 @@
     "platform": "x",
     "url": "https://x.com/karpathy",
     "enabled": true,
-    "rssUrl": "https://rss.app/r/feed/okBRelUhhwz0tGan",
-    "note": "Paste an RSS-bridge feed URL for x.com/karpathy into rssUrl. See SETUP_KEYS.md."
+    "rssUrl": "",
+    "note": "Read via the X API (X_BEARER_TOKEN, pay-per-use). Leave rssUrl empty to use the API."
   },
   {
     "name": "Starcloud",
@@ -44,7 +44,7 @@
     "url": "https://x.com/Starcloud_",
     "enabled": true,
     "rssUrl": "",
-    "note": "Paste an RSS-bridge feed URL for x.com/Starcloud_ into rssUrl. See SETUP_KEYS.md."
+    "note": "Read via the X API (X_BEARER_TOKEN, pay-per-use). Leave rssUrl empty to use the API."
   },
   {
     "name": "Paul Graham",
@@ -52,8 +52,8 @@
     "platform": "x",
     "url": "https://x.com/paulg",
     "enabled": false,
-    "rssUrl": "https://rss.app/r/feed/aqFVX4Byxq9hhfr6",
-    "note": "Example 'other personality'. Flip enabled to true and add an rssUrl to include."
+    "rssUrl": "",
+    "note": "Example 'other personality'. Flip enabled to true to include (reads via the X API)."
   },
   {
     "name": "Sam Altman",
@@ -61,7 +61,7 @@
     "platform": "x",
     "url": "https://x.com/sama",
     "enabled": false,
-    "rssUrl": "https://rss.app/r/feed/Md6hkONMaEvHjb0r",
-    "note": "Example 'other personality'. Flip enabled to true and add an rssUrl to include."
+    "rssUrl": "",
+    "note": "Example 'other personality'. Flip enabled to true to include (reads via the X API)."
   }
 ]

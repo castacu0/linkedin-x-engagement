@@ -8,10 +8,10 @@ const API = 'https://api.x.com/2'
  * `sinceIso`.
  *
  * Resolution order:
- *   1. `rssUrl` (recommended) — an RSS-bridge feed of the profile. No key, no
- *      paid X tier.
- *   2. X API v2 app-only Bearer token (`X_BEARER_TOKEN`) — needs the paid Basic
- *      tier or higher to read other users' timelines.
+ *   1. `rssUrl` — an RSS-bridge feed of the profile (no key). Used only if set.
+ *   2. X API v2 app-only Bearer token (`X_BEARER_TOKEN`). As of Feb 2026 the
+ *      default is pay-per-use (prepaid credits, no subscription) — reading other
+ *      users' posts is billed per read, a few dollars/month at this volume.
  * Without either, the account is skipped (returns []).
  */
 export async function fetchXPosts(account: AccountConfig, sinceIso: string): Promise<PostRef[]> {

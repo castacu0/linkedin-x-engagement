@@ -3,9 +3,14 @@ import { join } from 'node:path'
 import { loadEnv, repoRoot } from './lib/env'
 import { fetchPostsForAccount } from './lib/sources/index'
 import { draftComment } from './lib/draft'
-import { saveDay } from './lib/store'
+import { saveDay, loadSeen, saveSeen } from './lib/store'
 import { notify } from './lib/notify'
 import type { AccountConfig, DayFile, Draft, PostRef } from './lib/types'
+
+/** Stable per-post key for cross-run dedup (matches the draft id shape). */
+function postKey(account: AccountConfig, postId: string): string {
+  return `${account.platform}-${account.handle.replace(/^@/, '')}-${postId}`
+}
 
 /** Sample posts may carry a curated example comment so the demo shows the
  *  intended quality without needing an Anthropic key. */
@@ -32,6 +37,9 @@ async function main(): Promise<void> {
   const accounts = loadJson<AccountConfig[]>('config/accounts.json').filter((a) => a.enabled !== false)
   const samples: SamplePosts = sampleMode ? loadJson<SamplePosts>('config/sample-posts.json') : {}
 
+  // Sample mode is a stateless demo; only live scans track seen posts.
+  const seen = sampleMode ? {} : loadSeen()
+
   console.log(
     `[scan] mode=${sampleMode ? 'sample' : 'live'} accounts=${accounts.length} ` +
       `since=${sinceIso} (${sinceHours}h)`,
@@ -41,11 +49,20 @@ async function main(): Promise<void> {
   const byPlatform: Record<string, number> = {}
 
   for (const account of accounts) {
-    const rawPosts: SamplePost[] = sampleMode
+    const fetched: SamplePost[] = sampleMode
       ? (samples[account.handle] ?? []).map((p) => ({ ...p, isSample: true }))
       : await fetchPostsForAccount(account, sinceIso)
 
-    console.log(`[scan] ${account.name} (${account.handle}): ${rawPosts.length} post(s)`)
+    // Drop posts already drafted in a previous run (overlapping 72h windows).
+    const rawPosts = sampleMode
+      ? fetched
+      : fetched.filter((p) => !(postKey(account, p.id) in seen))
+
+    const skipped = fetched.length - rawPosts.length
+    console.log(
+      `[scan] ${account.name} (${account.handle}): ${rawPosts.length} new post(s)` +
+        (skipped > 0 ? ` (${skipped} already seen)` : ''),
+    )
 
     for (const raw of rawPosts) {
       const { comment: curated, ...post } = raw
@@ -53,7 +70,7 @@ async function main(): Promise<void> {
         ? { comment: curated, rationale: 'Curated sample (learn-wise example)' }
         : await draftComment(account, post)
       drafts.push({
-        id: `${account.platform}-${account.handle.replace(/^@/, '')}-${post.id}`,
+        id: postKey(account, post.id),
         account: { name: account.name, handle: account.handle, platform: account.platform, url: account.url },
         post,
         draftComment: comment,
@@ -61,6 +78,7 @@ async function main(): Promise<void> {
         status: 'needs_review',
       })
       byPlatform[account.platform] = (byPlatform[account.platform] ?? 0) + 1
+      seen[postKey(account, post.id)] = post.publishedAt || new Date().toISOString()
     }
   }
 
@@ -78,6 +96,7 @@ async function main(): Promise<void> {
   }
 
   saveDay(day)
+  if (!sampleMode) saveSeen(seen)
   console.log(`[scan] wrote public/data/drafts/${day.date}.json and drafts/${day.date}.md`)
   await notify(day)
 
